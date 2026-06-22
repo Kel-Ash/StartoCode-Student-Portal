@@ -1,0 +1,258 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+
+:root {
+    --bg-canvas: #1b3462;
+    --error-slate: red;
+    --form-active-highlight: #333333;
+    --accent-teal: #17a2b8;
+    --accent: #bef5fa;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --card-surface: #ffffff;
+    --card-border: rgba(255, 255, 255, 0.15);
+}
+/* 
+-----------------------------------------
+NAVIGATION STYLES FOR HEARDER AND FOOTER
+-----------------------------------------
+*/
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-canvas);
+    padding: 20px 20px;
+}
+
+.navigation ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.navigation img {
+    height: 40px;
+    margin-right: 30px;
+}
+
+
+.navigation li a {
+    color: var(--card-surface);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.navigation li a:hover {
+    background-color: var(--card-border);
+}
+
+.navigation .start a{
+    color: var(--card-surface);
+    font-size: 18px;
+}
+
+/* 
+-----------------------------------
+MAIN CONTENT STYLES FOR INDEX PAGE
+-----------------------------------
+*/
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 20px;
+}
+
+.content h1{
+    font-size: 45px;
+    color: var(--bg-canvas);
+    margin-bottom: 10px;
+}
+
+.content p{
+    font-size: 25px;
+    color: var(--bg-canvas);
+}
+
+.cta-button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--bg-canvas);
+    border: none;
+    border-radius: 5px;  
+    cursor: pointer;
+}
+
+
+.cta-button a{
+    color: var(--card-surface);
+    font-size: 18px;
+}
+
+footer{
+    background-color: #1b3462;
+    color: var(--card-surface);
+    text-align: center;
+    padding: 20px 0;
+}
+/* 
+------------------------------------------
+MAIN CONTENT STYLES FOR STUDENTPORTAL PAGE
+------------------------------------------
+*/
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.student-portal{
+    width: 100%;
+    background-color: var(--accent);
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.student-portal h2{
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.student-portal .form-section-header{
+    background-color: var(--text-secondary);
+    color: var(--card-surface);
+    padding: 6px 5px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* 
+-------------------------------------
+FORM SECTION FOR STUDENTPORTAL PAGE
+-------------------------------------
+*/
+.form-section .error{
+    display: none;
+    color: var(--error-slate);
+    font-weight: bold;
+    min-height: 20px;
+   
+}
+
+.form-section .error.active{
+   display: block;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    gap:  20px 30px;
+    margin-bottom: 20px;
+}
+
+.picture-width{
+    grid-column:span 2;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label{
+    color: #1b3462;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.radio-group,
+.option{
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    padding: 8px;
+    border: 1px solid var(--card-surface);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--card-surface);
+    outline: none;
+    color: var(--form-active-highlight);
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.submit-btn {
+    background-color: var(--text-secondary);
+    color: var(--card-surface);
+    border: none;
+    width: 400px;
+    padding: 10px 50px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: var(--text-primary);
+}
+
+
+.info-banner {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 5px solid var(--accent-teal);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* 
+=====================================================
+   RESPONSIVE DESIGN  FOR INDEX AND STUDENT PORTAL
+=====================================================
+*/
+@media (max-width: 992px) {
+   .container{
+       display: flex;
+       flex-wrap: wrap;
+   }
+   .container h1{
+    font-size: 30px;
+   }
+   .container p{
+    font-size: 18px;
+   }
+   .image img{
+    height: 400px;
+    width: 400px;
+   }
+
+}
