@@ -20,7 +20,7 @@ MAIN CONTENT
     <div class="filter-card">
         <form action="" method="GET" class="filter-form">
             <input type="text" name="search" placeholder="Search Record By Name Only" value="<?php if (isset($_GET['search'])) {
-                                                                                                    echo $_GET['search'];
+                                                                                                    echo htmlspecialchars($_GET['search']);
                                                                                                 } ?> ">
 
             <select name="status">
@@ -35,7 +35,9 @@ MAIN CONTENT
                 <option value="female" <?php echo (($_GET['gender-filter'] ?? '') === 'female') ? 'selected' : ''; ?>>Female</option>
             </select>
 
-            <input type="text" name="jamb-filter" value="" placeholder="Enter Jamb Score">
+            <input type="text" name="jamb-filter" value="<?php if (isset($_GET['jamb-filter'])) {
+                                                                echo htmlspecialchars($_GET['jamb-filter']);
+                                                            } ?>" placeholder="Enter Jamb Score">
 
             <button type="submit" class="search-btn">Search</button>
         </form>
@@ -80,6 +82,12 @@ MAIN CONTENT
                 if (isset($_GET['gender-filter']) && !empty($_GET['gender-filter'])) {
                     $gender = mysqli_real_escape_string($conn, $_GET['gender-filter']);
                     $conditions[] = "gender = '$gender'";
+                }
+
+                // Jamb Score Filter Module
+                if (isset($_GET['jamb-filter']) && !empty(trim($_GET['jamb-filter']))) {
+                    $jambFilter = mysqli_real_escape_string($conn, trim($_GET['jamb-filter']));
+                    $conditions[] = "CAST(jambScore AS CHAR) LIKE '%$jambFilter%'";
                 }
 
                 // Combine conditions with AND operator if any exist

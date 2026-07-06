@@ -144,13 +144,14 @@ PROFILE CARD FOOTER SECTION
 -------------------------------
                             -->
                 <div class="profile-card-footer">
-                    <form action="" method="POST" class="status-update-form" style="display: flex; gap: 10px;">
+                    <form action="" method="POST" class="status-update-form" style="display: flex; gap: 10px; align-items: center;">
                         <input type="hidden" name="update_status" value="1">
-                        <select name="status" onchange="this.form.submit()">
-                            <option value="">Select-Admission-Status</option>
-                            <option value="admitted" <?php echo ($currentStatus === 'admitted') ? 'selected' : ''; ?>>Admitted</option>
-                            <option value="undecided" <?php echo ($currentStatus === 'undecided') ? 'selected' : ''; ?>>Undecided</option>
-                        </select>
+                        <input type="hidden" name="status" value="undecided">
+                        <label style="display: flex; gap: 5px; cursor: pointer;">
+                            <input type="checkbox" name="status" value="admitted" onchange="this.form.submit()"
+                                <?php echo ($currentStatus === 'admitted') ? 'checked' : ''; ?>>
+                            Admitted
+                        </label>
                     </form>
                     <a href="StudentRecord.php" class="btn btn-back">Back to List</a>
                 </div>

@@ -234,6 +234,41 @@ FORM SECTION FOR STUDENTPORTAL PAGE
     font-weight: 500;
 }
 
+
+/* 
+---------------------------------------------
+SUCCESS POPUP STYLES FOR STUDENTPORTAL PAGE
+---------------------------------------------
+ */
+.success-popup {
+    position: fixed;
+    top: -100px; 
+    right: 20px;
+    background-color: var(--accent-teal); 
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    z-index: 9999;
+    transition: top 0.5s ease-in-out;
+}
+
+/* Rounded container style for the checkmark icon */
+.popup-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 50%;
+}
+
+.success-popup.show {
+    top: 20px; 
+}  
+
 /* 
 =====================================================
    RESPONSIVE DESIGN  FOR INDEX AND STUDENT PORTAL

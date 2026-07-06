@@ -23,7 +23,7 @@ function handleFormValidation(){
     const address = document.getElementById('user-address').value.trim();
     const stateofOrigin = document.getElementById('user-state-of-origin').value.trim();
     const localGovernment = document.getElementById('user-local-government').value.trim();
-    const nextOfKing = document.getElementById('user-next-of-king').value.trim();
+    const nextOfKing = document.getElementById('user-next-of-kin').value.trim();
     const jampScore = document.getElementById('user-jamb-score').value.trim();
     const ErrorBox = document.getElementById('error')
 
@@ -57,6 +57,7 @@ else{
 }
 
 }
+
 
 // get data from 
 const stateSelect = document.getElementById('user-state-of-origin');
@@ -108,6 +109,26 @@ imageInput.addEventListener('change', function(){
     }
     });
 
+    
+const popup = document.getElementById('success-popup');
+    
+    if (popup) {
+        // delay before sliding down so the user notices the movement
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 100);
+
+        // Automatically slide up and hide after 4 seconds
+        setTimeout(() => {
+            popup.classList.remove('show');
+            
+            // Remove the popup from the DOM after the slide-up transition
+            setTimeout(() => {
+                popup.remove();
+            }, 500); // 500ms for the slide-up transition
+            
+        }, 4000);
+    }
 
 });
 

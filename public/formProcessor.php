@@ -1,6 +1,11 @@
 <?php
 include_once(__DIR__ . '/../config/connectionDB.php');
-session_start();
+
+// Fix: Only start the session if one isn't already active
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 global $errorMessage;
 $errorMessage = array();
 
@@ -46,7 +51,10 @@ if (isset($_POST['submit'])) {
 
         if (mysqli_query($conn, $sql)) {
             $errorMessage = array();
-            header("Location: studentRecord.php");
+            $_SESSION['success'] = "Student form submitted successfully!";
+
+            // Redirect back to the form page first so it can show the popup
+            header("Location: studentPortal.php");
             exit();
         } else {
             die("Database insertion failed: " . mysqli_error($conn));
